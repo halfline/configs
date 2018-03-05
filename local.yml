@@ -1,11 +1,9 @@
 - all:
   become: true
   tasks:
-  - name: Install screen
-    yum: name=screen
-
-  - name: Install git
-    yum: name=git
-
-  - name: Install vim
-    yum: name=vim
+  - name: Install packages
+    yum: name={{item}}
+    with_items:
+      - screen
+      - git
+      - vim
